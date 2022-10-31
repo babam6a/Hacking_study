@@ -1,0 +1,2 @@
+cookies1 : 
+flag{whisper_words_of_wisdom,_cat_key}

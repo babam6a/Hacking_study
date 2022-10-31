@@ -1,0 +1,32 @@
+d=aaaaa&admin=0(16) :           37f1a1d93842bdc3 a3637c9bb15ad0c6
+48eec299d253f443
+id=aaaaa&admin=1&admin=0 :          37f1a1d93842bdc3 c5d9593b8323d41a
+a3637c9bb15ad0c6 48eec299d253f443(패딩)
+id=aaaaaaaaaaaa&admin=0(23) :
+37f1a1d93842bdc3c42b1541c78c7bf03f09c68ee7af302e
+id=aaaaaaaaaaaaa&admin=0(24) :
+37f1a1d93842bdc32f5e4f13c314bf0ea3637c9bb15ad0c648eec299d253f443
+
+ECB(8자리)
+
+
+id=aaaaa &admin=0       :       485e9b3cb40f08a2 a35331f559ced016
+bb9ff0a884e5330d
+id=aaaaa aaaaaaaa &admin=0  :       485e9b3cb40f08a2 5245f7f9bd02645b
+70f50a94287f2152 5fdd5a9f755f6935
+                                        (5b를 1비트 바꾸면 뒤에 1비트가
+바뀐다)
+
+CBC(8자리)
+C_1 = E(IV xor "id=aaaac") 0x42 -> 0x43
+C_2 = E(C_1 xor "&admin=0")
+
+P_1 = D(C_1) ^ IV = D(C_1) ^ C_0
+P_2 = D(C_2) ^ C_1
+
+"b" = "1011" ^ "0111" == "1100" == "c"
+"b" = "1011" ^ "0001" == "1010" == "a"
+D("70f50a94287f2152") ^ "5245f7f9bd02645c" == "??????????????30" ^
+"0000000000000007"
+D("70f50a94287f2152") ^ "5245f7f9bd02645a" == "??????????????30" ^
+"0000000000000001"
