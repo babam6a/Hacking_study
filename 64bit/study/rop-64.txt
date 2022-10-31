@@ -1,0 +1,9 @@
+0x40076d
+0x601090
+0x4008b3 = pop rdi; ret
+0x400610 = read
+0
+0x601090 : writable space(extern)
+0x4008b1 = pop rsi; pop rdi; ret
+
+read(0,esi,edx)에서 edx를 넘어가는 byte를 입력할 경우, 넘어간 byte는 다음 read함수로 넘어간다.
